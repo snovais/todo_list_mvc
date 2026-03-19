@@ -1,0 +1,86 @@
+name: Build installers
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Build com Maven
+        run: mvn package -DskipTests
+
+      - name: Copiar dependências
+        run: mvn dependency:copy-dependencies -DoutputDirectory=target/dependency-jars
+
+      - name: Gerar .deb
+        run: |
+          jpackage \
+            --input target \
+            --dest instalador \
+            --name "TodoApp" \
+            --main-jar todo-app-mvc-1.0-SNAPSHOT.jar \
+            --main-class br.com.todo.TodoApp \
+            --type deb \
+            --icon src/main/resources/icon.png \
+            --app-version 1.0 \
+            --vendor "Sergio Lima" \
+            --linux-shortcut \
+            --java-options "-Dsun.java2d.uiScale=2.0" \
+            --java-options "-Dawt.useSystemAAFontSettings=on" \
+            --java-options "-Dswing.aatext=true"
+
+      - name: Upload .deb
+        uses: actions/upload-artifact@v4
+        with:
+          name: instalador-linux
+          path: instalador/*.deb
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Build com Maven
+        run: mvn package -DskipTests
+
+      - name: Copiar dependências
+        run: mvn dependency:copy-dependencies -DoutputDirectory=target/dependency-jars
+
+      - name: Gerar .exe
+        run: |
+          jpackage `
+            --input target `
+            --dest instalador `
+            --name "TodoApp" `
+            --main-jar todo-app-mvc-1.0-SNAPSHOT.jar `
+            --main-class br.com.todo.TodoApp `
+            --type exe `
+            --app-version 1.0 `
+            --vendor "Sergio Lima" `
+            --win-shortcut `
+            --win-menu `
+            --java-options "-Dsun.java2d.uiScale=2.0"
+
+      - name: Upload .exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: instalador-windows
+          path: instalador/*.exe
