@@ -1,0 +1,12 @@
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/TodoApp.java
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/controller/TaskController.java
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/database/DatabaseManager.java
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/model/Task.java
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/model/Urgencia.java
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/repository/TaskRepository.java
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/repository/TaskRepositorySQL.java
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/view/AppFrame.java
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/view/FooterPanel.java
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/view/FormPanel.java
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/view/HeaderPanel.java
+/home/lima/Desktop/java/Todo/todo-app-mvc/src/main/java/br/com/todo/view/ListPanel.java

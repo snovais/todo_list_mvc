@@ -1,0 +1,6 @@
+br/com/todo/model/Urgencia.class
+br/com/todo/model/Task.class
+br/com/todo/view/ListPanel$4.class
+br/com/todo/repository/TaskRepository.class
+br/com/todo/repository/TaskRepositorySQL.class
+br/com/todo/database/DatabaseManager.class
