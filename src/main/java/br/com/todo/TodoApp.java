@@ -10,7 +10,7 @@ public class TodoApp {
 
         // deve ser definido ANTES de qualquer inicialização Swing
         System.setProperty("sun.java2d.uiScale.enabled", "true");
-        System.setProperty("sun.java2d.uiScale", "2.0");
+        System.setProperty("sun.java2d.uiScale", "1.3");
         System.setProperty("awt.useSystemAAFontSettings", "on");
         System.setProperty("swing.aatext", "true");
         System.setProperty("swing.defaultlaf", UIManager.getCrossPlatformLookAndFeelClassName());
